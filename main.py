@@ -2,12 +2,20 @@ import cv2
 
 print "Processamento de Imagem"
 
-img = cv2.imread("lenna.png")
+cam = cv2.VideoCapture(0)
+i = 0
 
-img = cv2.resize(img,(100,100))
+while True:
+	
+	i = i+1	
+	_, img = cam.read()
 
-cv2.imshow("lenna",img)
-cv2.waitKey()
+	#img = cv2.resize(img,(100,100))
 
-cv2.imwrite("lenna.jpg",img)
+	cv2.imshow("lenna",img)
+	cv2.imwrite("%d.png"%i,img)
+
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+        	break
+
 
