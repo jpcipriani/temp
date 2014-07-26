@@ -1,5 +1,8 @@
-print "Hello World"
+import cv2
 
-for i in range(3):
-	print i 
+print "Processamento de Imagem"
 
+img = cv2.imread("lenna.png")
+cv2.imshow("lenna",img)
+
+cv2.waitKey(3000)
